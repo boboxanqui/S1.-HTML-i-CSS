@@ -1,0 +1,290 @@
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 
+        "header header"
+        "articles lateral"
+        "footer footer";
+        gap: 10px;
+    font-family: sans-serif;
+}
+
+
+/* HEADER */
+
+.header {
+    grid-area: header;
+    background-image: url(img/header.jpg);
+    background-size:cover;
+    background-position: center;
+
+    animation-name: fromtop;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+.logo {
+    width: 100px;
+   
+}
+
+.logo:hover {
+    animation-name: logorotation;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in-out;
+}
+
+.fas, .fab {
+    margin: 5px;
+}
+
+.topheader {
+    margin: 30px 20px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    justify-items: center;
+    align-items: center;
+    /* justify-content: space-around;
+    align-items: center; */
+    color: gray;
+}
+
+.menu a{
+    padding: 10px;
+}
+
+.menu:hover {
+    color: coral;
+    border-bottom: 3px solid grey;
+    font-weight: 700;
+}
+
+.social :hover {
+    color:coral;
+}
+
+.bottomheader {
+    width: max-content;
+    margin: 100px auto 50px auto;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 2rem;
+    color: coral;
+    opacity: 0.7;
+    animation-name: frombig;
+    animation-timing-function: ease-in-out;
+    animation-duration: 2s;
+    animation-fill-mode: backwards;
+    animation-delay: 1.5s;
+}
+
+
+/* MAIN */
+
+.articles {
+    padding: 10px;
+    grid-area: articles;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    background-color: lightgray;
+    animation-name: frombottom;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0.5s;
+    animation-fill-mode: backwards;
+    animation-iteration-count: 1;
+}
+
+.card {
+    padding: 10px;
+    background-color: whitesmoke;
+}
+
+.card > h2 {
+    padding: 10px 0 0 5px;
+    margin-top: 5px;
+    font-family: monospace;
+    font-size: 1.7rem;
+    font-weight: 200;
+    background-color: lightcoral;
+    color: whitesmoke;
+}
+
+.card > p {
+    column-count: 2;
+}
+
+.leermas {
+    opacity: 0.5;
+}
+
+.leermas:hover {
+    opacity: 1.0;
+}
+
+.card-cultura {
+    /* display: flex;
+    align-items: flex-end; */
+    display: grid;
+    color:gold;
+    height: 150px;
+    background-image: url(img/sakura.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.card-gastronomia {
+    /* display: flex;
+    align-items: flex-end; */
+    display: grid;
+    color:gold;
+    height: 150px;
+    background-image: url(img/comida.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+.card-turismo {
+    /* display: flex;
+    align-items: flex-end; */
+    display: grid;
+    color:gold;
+    height: 150px;
+    background-image: url(img/fuji.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.card-vidanocturna {
+    /* display: flex;
+    align-items: flex-end; */
+    display: grid;
+    color:gold;
+    height: 150px;
+    background-image: url(img/noche.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.card time {
+    align-self: end;
+}
+
+.articlescaption {
+    grid-column: span 2;
+    padding: 10px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.lateral {
+    grid-area: lateral;
+    padding: 10px;
+    text-align: center;
+    background-color: lightgray;
+    animation-name: fromright;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0.8s;
+    animation-fill-mode: backwards;
+    animation-iteration-count: 1;
+}
+
+
+/* FOOTER */
+
+footer {
+    grid-area: footer;
+    padding: 0 10px;
+    background-color: lightgray;
+    animation-name: frombottom;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+    animation-iteration-count: 1;
+}
+
+footer > p {
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+    background-color: whitesmoke;
+}
+
+/* MEDIA QUERY */
+
+@media (max-width: 900px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "header"
+        "articles" 
+        "lateral"
+        "footer ";
+        gap: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .topheader {
+        grid-template-columns: 1fr;
+    }
+
+    .bottomheader {
+        width: auto;
+        margin: 20px auto;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .articles {
+        display:block;
+    }
+
+    .card > p {
+        column-count: 1;
+    }
+}
+
+@keyframes fromtop {
+    from {transform: translateY(-200px); opacity: 0.0;}
+    to {opacity: 1.0;}    
+}
+
+@keyframes fromright {
+    from {transform: translateX(100px);opacity: 0.0;}
+    to {opacity: 1.0;}    
+}
+
+@keyframes frombig {
+    from {transform: scale(2.5); opacity: 0.0;}
+    to { opacity: 0.7;}
+}
+
+@keyframes frombottom {
+    from {transform: translateY(100px); opacity: 0.0;}
+    to {opacity: 1;}
+}
+
+@keyframes logorotation {
+    20% {transform: rotate(72deg);}
+    40% {transform: rotate(144deg);}
+    60% { transform: rotate(216deg)scale(0.7);}
+    80% {transform: rotate(288deg);}
+    100% {transform: rotate(360deg);}
+}
